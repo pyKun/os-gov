@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 # Author: Kun Huang <academicgareth@gmail.com>
 
-from gerritlab import gerrit
+from gerritlib import gerrit
 
 class Gerrit(gerrit.Gerrit):
     def __init__(self, username):
