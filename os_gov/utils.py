@@ -39,16 +39,14 @@ id  username    full name   email
 9107    haypo   Victor Stinner  vstinner@redhat.com
 7450    yassine.lamgarchal  Yassine Lamgarchal  yassine.lamgarchal@enovance.com
     """
-    members = []
+    members = {}
     for line in output.splitlines():
         id_, username, name_email = line.split(None, 2)
         name, email = name_email.rsplit(None, 1)
         if id_ == "id":
             continue
-        member = {"id": id_,
-                  "username": username,
-                  "fullname": name,
-                  "email": email,}
-        members.append(member)
+        members[id_] = {"username": username,
+                        "fullname": name,
+                        "email": email,}
 
     return members
