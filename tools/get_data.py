@@ -5,6 +5,7 @@
 
 from os_gov import gerrit
 from copy import deepcopy
+import json
 
 g = gerrit.Gerrit()
 all_groups = g.listGroups()
@@ -27,4 +28,6 @@ for group in all_groups:
             all_members[member]["count"] = 1
             all_members[member]["resp"] = [group]
 
-print all_members
+json_data = json.dumps(all_members)
+with open("./data.json", "w") as f:
+    f.write(json_data)
