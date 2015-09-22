@@ -17,3 +17,16 @@ def do_get_cores(hint):
         if hint.lower() in target_str.lower():
             ret.append(data[mem_id])
     return ret
+
+def do_get_companies(hint):
+    if not hint:
+        return []
+    hint = str(hint)
+    data = get_data()
+    ret = []
+    for mem_id in data:
+        mail = data[mem_id]["email"]
+        domain = mail.split("@")[-1]
+        if hint.lower() in domain.lower():
+            ret.append(data[mem_id])
+    return ret
