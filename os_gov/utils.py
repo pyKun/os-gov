@@ -2,6 +2,7 @@
 #-*- coding:utf-8 -*-
 # Author: Kun Huang <academicgareth@gmail.com>
 import os
+import json
 
 
 def _get_gerrit_usename():
@@ -50,3 +51,11 @@ id  username    full name   email
                         "email": email,}
 
     return members
+
+def get_data():
+    return get_cached_data()
+
+def get_cached_data():
+    file = os.path.join(os.path.dirname(__file__), "cached/data.json")
+    with open(file, "r") as f:
+        return json.loads(f.read())
